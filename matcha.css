@@ -1,0 +1,168 @@
+/* 抹茶ガイドページ専用スタイル（matcha.html / matcha-en.html 共通） */
+.guide { padding-top: 76px; }
+.guide-wrap {
+  width: min(var(--max), calc(100% - 36px));
+  margin: 0 auto;
+}
+.guide-hero { padding: clamp(26px, 4vw, 44px) 0 clamp(18px, 3vw, 30px); }
+.guide-hero img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.guide-lead {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* 動画 */
+.player {
+  width: 100%;
+  max-width: 420px;
+  max-height: 72svh;
+  margin: 0 auto;
+  aspect-ratio: 9 / 16;
+  background: var(--soft-2);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+/* YouTube IFrame API が width/height 属性を上書きするので !important で固定 */
+.player iframe { width: 100% !important; height: 100% !important; border: 0; display: block; }
+
+.chapters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+  max-width: 560px;
+  margin: 22px auto 0;
+  padding: 0;
+  list-style: none;
+}
+.chapters button {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  font: inherit;
+  font-size: 15px;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+.chapters button:hover { border-color: var(--accent); background: var(--soft); }
+.chapters time { color: var(--subtle); font-size: 13px; }
+
+/* レシピ */
+.recipes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 16px;
+}
+.recipe {
+  padding: 26px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.recipe h3 { margin: 0 0 16px; font-size: 19px; }
+.recipe dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; }
+.recipe dt { color: var(--subtle); font-size: 14px; }
+.recipe dd { margin: 0; font-size: 16px; font-weight: 700; }
+.recipe dd small { font-weight: 400; color: var(--muted); font-size: 13px; }
+
+/* 手順・コツ */
+.steps, .tips { margin: 0; padding: 0; list-style: none; }
+.steps li, .tips li {
+  position: relative;
+  padding-left: 42px;
+  margin-bottom: 12px;
+  color: var(--muted);
+}
+.steps li b, .tips li b { color: var(--ink); font-weight: 700; }
+.steps li::before, .tips li::before {
+  counter-increment: s;
+  content: counter(s);
+  position: absolute;
+  left: 0; top: 4px;
+  width: 26px; height: 26px;
+  line-height: 26px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.steps, .tips { counter-reset: s; }
+
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(20px, 4vw, 44px);
+}
+
+/* 道具 */
+.tools { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+.tools li {
+  padding: 8px 16px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+/* 注意 */
+.caution {
+  margin-top: 22px;
+  padding: 22px 26px;
+  background: #fff;
+  border: 1px solid #e0d2cc;
+  border-radius: 8px;
+}
+.caution p { margin: 0 0 6px; color: #8a5a4a; font-size: 15px; }
+.caution p:last-child { margin-bottom: 0; }
+
+/* LINE・CTA */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.card {
+  padding: clamp(24px, 4vw, 34px);
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.card h3 { margin: 0 0 10px; font-size: 18px; }
+.card p { margin: 0 0 18px; color: var(--muted); font-size: 14px; }
+.card .button { display: inline-block; }
+.is-pending {
+  display: inline-block;
+  padding: 11px 24px;
+  border-radius: 999px;
+  border: 1px dashed var(--line);
+  color: var(--subtle);
+  font-size: 14px;
+}
+
+.lang-switch { text-align: center; padding: 8px 0 clamp(50px, 7vw, 80px); }
+.lang-switch a {
+  display: inline-block;
+  padding: 12px 28px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+.lang-switch a:hover { border-color: var(--accent); color: var(--ink); }
